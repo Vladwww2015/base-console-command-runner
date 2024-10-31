@@ -1,0 +1,15 @@
+{
+    "name": "integration-helper/base-console-command-runner",
+    "description": "Integration Helper. Base Console Command Runner",
+    "license": "MIT",
+    "require": {
+        "php": "^8.2"
+    },
+    "autoload": {
+        "psr-4": {
+            "IntegrationHelper\\BaseConsoleCommandRunner\\": ""
+        }
+    },
+    "minimum-stability": "dev",
+    "version": "1.0.0"
+}

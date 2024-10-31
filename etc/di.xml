@@ -1,0 +1,40 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+        xsi:noNamespaceSchemaLocation="urn:magento:framework:ObjectManager/etc/config.xsd">
+    <preference for="IntegrationHelper\BaseConsoleCommandRunner\Model\ConsoleCommandRunnerInterface"
+                type="IntegrationHelper\BaseConsoleCommandRunner\Model\ConsoleCommandRunner"/>
+
+    <type name="IntegrationHelper\BaseLogger\Logger\LoggerInitiator">
+        <arguments>
+            <argument name="loggerTypes" xsi:type="array">
+                <item name="base_console_command_runner_crit" xsi:type="array">
+                    <item name="log_type" xsi:type="string">base_console_command_runner_crit</item>
+                    <item name="filepath" xsi:type="string">/var/log/base_console_command_runner_crit.log</item>
+                </item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="IntegrationHelper\BaseConsoleCommandRunner\Model\ConsoleCommandAlgorithmShellBackground">
+        <arguments>
+            <argument name="shell" xsi:type="object">shellBackground</argument>
+        </arguments>
+    </type>
+
+    <type name="IntegrationHelper\BaseConsoleCommandRunner\Model\ConsoleCommandRunner">
+        <arguments>
+            <argument name="algorithms" xsi:type="array">
+                <item name="default" xsi:type="object">IntegrationHelper\BaseConsoleCommandRunner\Model\ConsoleCommandAlgorithmDefault</item>
+                <item name="shellBackground" xsi:type="object">IntegrationHelper\BaseConsoleCommandRunner\Model\ConsoleCommandAlgorithmShellBackground</item>
+            </argument>
+        </arguments>
+    </type>
+
+    <type name="Magento\Framework\Console\CommandListInterface">
+        <arguments>
+            <argument name="commands" xsi:type="array">
+                <item name="integration-helper-base-console-run" xsi:type="object">IntegrationHelper\BaseConsoleCommandRunner\Console\Command\Run</item>
+            </argument>
+        </arguments>
+    </type>
+</config>
