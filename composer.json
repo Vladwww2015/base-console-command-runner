@@ -3,7 +3,8 @@
     "description": "Integration Helper. Base Console Command Runner",
     "license": "MIT",
     "require": {
-        "php": "^8.2"
+        "php": "^8.2",
+        "integration-helper/base-logger": "^1.0"
     },
     "autoload": {
         "psr-4": {
@@ -11,5 +12,5 @@
         }
     },
     "minimum-stability": "dev",
-    "version": "1.0.0"
+    "version": "1.0.1"
 }
